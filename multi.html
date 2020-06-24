@@ -155,10 +155,12 @@
 
               if (interval_type == "monthly") {
                 tier = multi_tiers_monthly;
-                base = 288;
+                //base = 288;
+                base = 348;
               } else {
                 tier = multi_tiers_yearly;
-                base = 288 * 12;
+                //base = 288 * 12;
+                base = 348 * 12;
               }
               break;
           }
@@ -201,7 +203,8 @@
 
         function setupPricing() {
           $("#target_emails").val(
-            Math.ceil($("#target_emails").val() / 500) * 500
+            //Math.ceil($("#target_emails").val() / 500) * 500
+            Math.ceil($("#target_emails").val())
           );
           var amount = 0;
           var total_amount = 0; //used to make average calculation
@@ -245,10 +248,12 @@
               $(".unit_name").html("seat");
               if (interval_type == "monthly") {
                 tier = multi_tiers_monthly;
-                base = 288;
+                //base = 288;
+                base = 348;
               } else {
                 tier = multi_tiers_yearly;
-                base = 288 * 12;
+                //base = 288 * 12;
+                base = 348 * 12;
               }
               break;
           }
@@ -344,14 +349,15 @@
           }
           if (license_type != "single" && interval_type == "monthly") {
             $("#averageCost").html(
-              monitize(main_total / (total_amount / 12))
+              //monitize(main_total / (total_amount / 12))
+              monitize(truncateDecimals(main_total / (total_amount * 12), 4))
             );
           } else {
             $("#averageCost").html(monitize(main_total / total_amount));
           }
 
-          //$('#averageCost').html(monitize(main_total/total_amount));
-          $("#totalPrice").html(monitize(main_total));
+          $('#averageCost').html(monitize(main_total / total_amount));
+          //$("#totalPrice").html(monitize(main_total));
 
           if (license_type == "single" && $("#number_seats").val() > 10000) {
             $("#costDisplay").hide();
@@ -454,7 +460,7 @@
               Monthly
             </label>
             <label class="radio-inline mr10">
-              <input type="radio" name="account_interval" value="yearly"  />
+              <input type="radio" name="account_interval" value="yearly" />
               Yearly
             </label>
           </div>
@@ -473,14 +479,14 @@
         <div id="price_row" class="row" style="border-top: 1px solid #eeeeee; margin-top: 15px;">
           <div class="col-xs-12">
             <h4 id="costDisplay">
-              Cost: <span id="totalPrice" class="widget-menu">$2,880.00</span>
+              Cost: <span id="totalPrice" class="widget-menu">$348.00</span>
               <small style="color: #999999;">
                 <span class="interval_disp">/year</span><br />(<span id="averageCost" class="widget-menu">$0.48</span>
                 average cost per <span class="unit_name">mailbox</span>)
               </small>
             </h4>
             <h4 id="costQuote" style="display: none;">
-              Call for Custom Pricing <br /><small>+1-855-647-4474</small>
+              Call for Custom Pricing <br /><small>+1-11-11-1111</small>
             </h4>
           </div>
           <div class="col-xs-12" style="
@@ -490,7 +496,8 @@
                 justify-content: space-between;
               ">
             <button type="button" class="btn btn-primary" id="addButton">
-              60 Day Trial</button><select class="form" id="currency" style="float: right; display: block; margin-left: 0px;">
+              60 Day Trial</button><select class="form" id="currency"
+              style="float: right; display: block; margin-left: 0px;">
               <option value="AUD">AUD A$</option>
               <option value="BGN">BGN leva</option>
               <option value="BRL">BRL R$</option>
@@ -576,7 +583,7 @@
               <td align="right">-</td>
               <td align="left">x 6000</td>
               <td></td>
-              <td align="right">$2,880.00</td>
+              <td align="right">$3480.00</td>
             </tr>
             <tr>
               <td>6001-15000</td>
@@ -610,7 +617,7 @@
               <td align="right"></td>
               <td align="left"></td>
               <td align="right"></td>
-              <td align="right">$2,880.00</td>
+              <td align="right">$3480.00</td>
             </tr>
           </tbody>
         </table>

@@ -160,11 +160,13 @@
 
               if (interval_type == "monthly") {
                 tier = multi_tiers_monthly;
-                base = 288;
+                //base = 288;
+                base = 348;
               } else {
                 tier = multi_tiers_yearly;
                 //base = 2880;
-                base = 288 * 12;
+                //base = 288 * 12;
+                base = 348 * 12;
               }
               break;
           }
@@ -251,12 +253,14 @@
               $(".unit_name").html("target email");
               if (interval_type == "monthly") {
                 tier = multi_tiers_monthly;
-                base = 288;
+                //base = 288;
                 //base = 300 * 0.8;
+                base = 348;
               } else {
                 tier = multi_tiers_yearly;
-                base = 2880;
+                //base = 2880;
                 //base = 3000 * 0.8;
+                base = 348 * 12;
               }
               break;
           }
@@ -499,7 +503,8 @@
                 justify-content: space-between;
               ">
             <button type="button" class="btn btn-primary" id="addButton">
-              60 Day Trial</button><select class="form" id="currency" style="float: right; display: block; margin-left: 0px;">
+              60 Day Trial</button><select class="form" id="currency"
+              style="float: right; display: block; margin-left: 0px;">
               <option value="AUD">AUD A$</option>
               <option value="BGN">BGN leva</option>
               <option value="BRL">BRL R$</option>
